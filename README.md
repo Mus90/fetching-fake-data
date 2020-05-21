@@ -1,1 +1,1 @@
-# whether-app
+# Weather API app using ReactJS CRA
