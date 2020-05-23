@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-import "./App.css";
 import axios from "axios";
 
-const instance = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com/comments/1",
-});
-
 export default class App extends Component {
+  state = {
+    persons: [],
+  };
+
   componentDidMount() {
-    instance.get().then((response) => {
-      const data = response.data;
-      console.log(data.email);
+    axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
+      this.setState({ persons: res.data });
     });
   }
 
@@ -28,6 +26,11 @@ export default class App extends Component {
           with desktop publishing software like Aldus PageMaker including
           versions of Lorem Ipsum.
         </p>
+        <ul>
+          {this.state.persons.map((user) => (
+            <li>{user.name}</li>
+          ))}
+        </ul>
       </div>
     );
   }
