@@ -23,7 +23,7 @@ export default class App extends Component {
         });
       })
       .catch((error) => {
-        this.setState({ error: true });
+        this.setState({ error: true, loading: false });
       });
   }
 
