@@ -1,25 +1,30 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import axios from "axios";
-import './App.scss';
+import "./App.scss";
 import PersonView from "./PersonView";
-
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 export default class App extends Component {
-  state = {//initial state
+  state = {
+    //initial state
     persons: [],
-    error: false
+    error: false,
+    loading: true,
     //todo add loader or spinner
   };
 
   componentDidMount() {
-    axios.get("https://jsonplaceholder.typicode.com/users")
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
       .then((res) => {
-        console.log('res:', res);
-        this.setState({persons: res.data}, () => {
-          console.log('state: ', this.state.persons);
+        console.log("res:", res);
+        this.setState({ persons: res.data, loading: false }, () => {
+          console.log("state: ", this.state.persons);
         });
-      }).catch((error) => {
-      this.setState({error: true});
-    })
+      })
+      .catch((error) => {
+        this.setState({ error: true });
+      });
   }
 
   render() {
@@ -28,11 +33,12 @@ export default class App extends Component {
     return (
       <div className="App">
         <ul>
-          {
-            !this.state.error && persons.map(person =>
-              <PersonView key={person.id} personData={person}/>
-            )
-          }
+          {this.state.loading && <Loader />}
+
+          {!this.state.error &&
+            persons.map((person) => (
+              <PersonView key={person.id} personData={person} />
+            ))}
         </ul>
         {this.state.error && <p>some error happened :( </p>}
       </div>
