@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PersonView from "./PersonView";
-import Loader from "react-loader-spinner";
-//import { BrowserRouter, Link } from "react-router-dom";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import "./App.scss";
+import { Route } from "react-router-dom";
 
-export default class App extends Component {
+export default class UserDetail extends Component {
   state = {
     //initial state
     persons: [],
@@ -37,11 +33,10 @@ export default class App extends Component {
         <ul>
           {!this.state.error &&
             persons.map((person) => (
-              <PersonView key={person.id} personData={person} />
+              <Route exact path="/:id" component={UserDetail} />
             ))}
         </ul>
-        {this.state.error && <p>some error happened :( </p>}
-        {this.state.loading && <Loader />}
+        {this.state.error && <p>some error happened </p>}
       </div>
     );
   }
