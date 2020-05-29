@@ -1,9 +1,4 @@
 import React from "react";
-
-import { BrowserRouter, Link } from "react-router-dom";
-//import UserDetail from "./UserDetail";
-import "./PersonView.scss";
-
 import { NavLink } from "react-router-dom";
 import "./PersonView.scss";
 
