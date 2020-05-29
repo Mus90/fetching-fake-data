@@ -10,7 +10,10 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+<<<<<<< HEAD
     "react-loader-spinner": "^3.1.14",
+=======
+>>>>>>> 4055ad06d8afc25c442a505dd2c66fb9eb4d0dbe
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
