@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import PersonView from "./PersonView";
 import Loader from "react-loader-spinner";
-import UserDetail from "./UserDetail"
+
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./App.scss";
 
